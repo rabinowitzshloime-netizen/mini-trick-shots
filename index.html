@@ -15,10 +15,10 @@ body{font-family:system-ui,sans-serif;background:#f0f0f0;display:flex;justify-co
 #home-title-mini{font-family:'Permanent Marker',cursive,system-ui;font-size:32px;color:#E24B4A;display:inline-block;transform:rotate(-2deg);}
 #home-title-main{font-family:'Permanent Marker',cursive,system-ui;font-size:54px;color:#1a1a2e;display:inline-block;transform:rotate(1deg);}
 #home-sub{font-size:15px;color:#666;margin-bottom:2rem;}
-.lcards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;margin-bottom:1.5rem;}
+.lcards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;margin-bottom:1.5rem;}
 .lcard{background:#fff;border:1px solid #e0e0e0;border-radius:14px;padding:0.7rem;cursor:pointer;text-align:center;transition:border-color 0.15s;}
 .lcard:hover{border-color:#aaa;}
-.lcard svg{width:100%;height:85px;display:block;margin-bottom:6px;border-radius:8px;}
+.lcard svg{width:100%;height:100px;display:block;margin-bottom:6px;border-radius:8px;}
 .lcard-name{font-size:12px;font-weight:700;color:#111;margin-bottom:2px;}
 .lcard-desc{font-size:10px;color:#888;}
 #glvl{font-size:11px;font-weight:700;color:#888;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:0.8rem;}
@@ -40,9 +40,10 @@ canvas{position:absolute;inset:0;width:100%;height:100%;}
 #tap-btn:hover{background:#f5f5f5;}
 #tap-btn:active{transform:scale(0.98);}
 #msg{font-size:18px;font-weight:700;margin-top:0.7rem;min-height:26px;text-align:center;}
-#streak-row{font-size:13px;color:#888;margin-top:4px;min-height:18px;}
+#streak-row{font-size:13px;color:#888;margin-top:4px;min-height:18px;text-align:center;}
 #back-btn{margin-top:0.6rem;font-size:13px;color:#aaa;background:none;border:none;cursor:pointer;padding:4px 8px;}
 #back-btn:hover{color:#333;}
+#speed-row{font-size:12px;color:#888;margin-top:4px;min-height:18px;text-align:center;}
 </style>
 </head>
 <body>
@@ -52,95 +53,195 @@ canvas{position:absolute;inset:0;width:100%;height:100%;}
       <div id="home-title-mini">Mini</div><br>
       <div id="home-title-main">Trick Shots</div>
     </div>
-    <div id="home-sub">Pick a shot — zone shrinks each time you nail it</div>
+    <div id="home-sub">Pick a shot — nail it to make it harder!</div>
     <div class="lcards">
       <div class="lcard" onclick="startLevel(0)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="80" fill="#1a6b3a" rx="6"/>
-          <rect y="58" width="120" height="22" fill="#c8a050"/>
-          <line x1="14" y1="22" x2="14" y2="58" stroke="#fff" stroke-width="2"/>
-          <line x1="14" y1="22" x2="38" y2="22" stroke="#fff" stroke-width="2"/>
-          <rect x="7" y="11" width="10" height="14" fill="#fff" stroke="#185FA5" stroke-width="1" rx="1"/>
-          <line x1="32" y1="22" x2="44" y2="22" stroke="#E24B4A" stroke-width="3"/>
-          <circle cx="90" cy="32" r="7" fill="#1a1a2e"/>
-          <line x1="90" y1="20" x2="90" y2="44" stroke="#E24B4A" stroke-width="3"/>
-          <line x1="90" y1="44" x2="84" y2="58" stroke="#1a1a2e" stroke-width="2.5"/>
-          <line x1="90" y1="44" x2="96" y2="58" stroke="#1a1a2e" stroke-width="2.5"/>
-          <circle cx="68" cy="24" r="5" fill="#D85A30"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#0d4a25"/>
+          <rect x="0" y="0" width="30" height="130" fill="#0f5228" rx="0"/>
+          <rect x="60" y="0" width="30" height="130" fill="#0f5228"/>
+          <rect x="120" y="0" width="30" height="130" fill="#0f5228"/>
+          <line x1="0" y1="95" x2="180" y2="95" stroke="#2a8a50" stroke-width="1.5"/>
+          <ellipse cx="90" cy="95" rx="28" ry="14" fill="none" stroke="#2a8a50" stroke-width="1.5"/>
+          <rect x="0" y="106" width="180" height="24" fill="#c8902a"/>
+          <line x1="0" y1="108" x2="180" y2="108" stroke="#a07020" stroke-width="1.5"/>
+          <rect x="14" y="96" width="3" height="34" fill="#ccc"/>
+          <rect x="6" y="22" width="22" height="18" fill="#fff" rx="2"/>
+          <rect x="8" y="24" width="18" height="14" fill="#185FA5" rx="1"/>
+          <rect x="10" y="26" width="14" height="2.5" fill="rgba(255,255,255,0.5)"/>
+          <rect x="10" y="30" width="14" height="2.5" fill="rgba(255,255,255,0.5)"/>
+          <line x1="8" y1="50" x2="38" y2="50" stroke="#E24B4A" stroke-width="4"/>
+          <line x1="12" y1="50" x2="10" y2="64" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+          <line x1="18" y1="50" x2="16" y2="64" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+          <line x1="24" y1="50" x2="22" y2="64" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+          <line x1="30" y1="50" x2="28" y2="64" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+          <ellipse cx="148" cy="62" rx="11" ry="13" fill="#c8956a"/>
+          <ellipse cx="148" cy="55" rx="12" ry="9" fill="#1a1a2e"/>
+          <rect x="138" y="66" width="20" height="22" fill="#E24B4A" rx="3"/>
+          <rect x="137" y="85" width="9" height="18" fill="#1a1a2e" rx="2"/>
+          <rect x="149" y="85" width="9" height="18" fill="#1a1a2e" rx="2"/>
+          <line x1="138" y1="74" x2="125" y2="65" stroke="#c8956a" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 118 62 Q 80 12 36 48" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="85" cy="22" r="11" fill="#D85A30"/>
+          <line x1="74" y1="22" x2="96" y2="22" stroke="#993C1D" stroke-width="1.5"/>
+          <line x1="85" y1="11" x2="85" y2="33" stroke="#993C1D" stroke-width="1.5"/>
+          <text x="90" y="123" font-family="system-ui" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">FULL COURT</text>
         </svg>
         <div class="lcard-name">Full court shot</div>
         <div class="lcard-desc">Backwards throw</div>
       </div>
       <div class="lcard" onclick="startLevel(1)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="80" fill="#e8d9c0" rx="6"/>
-          <rect x="10" y="10" width="100" height="60" fill="#c8b890" rx="3"/>
-          <rect x="14" y="27" width="50" height="26" fill="#1a1a2e" rx="3"/>
-          <rect x="16" y="29" width="46" height="22" fill="#378ADD" rx="2"/>
-          <rect x="14" y="37" width="4" height="6" fill="#5DCAA5" rx="1"/>
-          <line x1="64" y1="40" x2="76" y2="40" stroke="#5DCAA5" stroke-width="2"/>
-          <rect x="76" y="33" width="18" height="14" fill="#333" rx="2"/>
-          <rect x="78" y="37" width="6" height="6" fill="#5DCAA5" rx="1"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#c8a870"/>
+          <rect x="0" y="0" width="36" height="130" fill="#d4b880" rx="0"/>
+          <rect x="72" y="0" width="36" height="130" fill="#d4b880"/>
+          <rect x="144" y="0" width="36" height="130" fill="#d4b880"/>
+          <line x1="36" y1="0" x2="36" y2="130" stroke="#a08040" stroke-width="1"/>
+          <line x1="72" y1="0" x2="72" y2="130" stroke="#a08040" stroke-width="1"/>
+          <line x1="108" y1="0" x2="108" y2="130" stroke="#a08040" stroke-width="1"/>
+          <line x1="144" y1="0" x2="144" y2="130" stroke="#a08040" stroke-width="1"/>
+          <rect x="120" y="36" width="42" height="52" fill="#2a2a2a" rx="6"/>
+          <rect x="123" y="39" width="36" height="46" fill="#1a1a1a" rx="4"/>
+          <rect x="127" y="46" width="14" height="14" fill="#5DCAA5" rx="3"/>
+          <rect x="117" y="59" width="5" height="8" fill="#888" rx="1"/>
+          <path d="M 112 63 Q 90 63 78 63" fill="none" stroke="#5DCAA5" stroke-width="3" stroke-linecap="round"/>
+          <rect x="12" y="36" width="64" height="52" fill="#1a1a2e" rx="7"/>
+          <rect x="15" y="39" width="52" height="46" fill="#378ADD" rx="5"/>
+          <rect x="17" y="41" width="14" height="42" fill="rgba(255,255,255,0.12)" rx="3"/>
+          <rect x="72" y="57" width="5" height="8" fill="#5DCAA5" rx="1"/>
+          <line x1="14" y1="50" x2="4" y2="50" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="14" y1="58" x2="3" y2="58" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="14" y1="66" x2="4" y2="66" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="90" y="123" font-family="system-ui" font-size="9" fill="#5a3a10" text-anchor="middle" font-weight="700">PHONE SLIDE</text>
         </svg>
         <div class="lcard-name">Phone slide</div>
         <div class="lcard-desc">Hit the charger</div>
       </div>
       <div class="lcard" onclick="startLevel(2)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="80" fill="#f5f0e8" rx="6"/>
-          <rect x="5" y="48" width="110" height="28" fill="#c8b890" rx="3"/>
-          <rect x="5" y="44" width="110" height="6" fill="#a08060" rx="2"/>
-          <rect x="52" y="12" width="16" height="34" fill="#5DCAA5" rx="4"/>
-          <rect x="54" y="6" width="12" height="10" fill="#1D9E75" rx="2"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#e8e0d0"/>
+          <rect x="0" y="0" width="180" height="55" fill="#d0c8b8" rx="10"/>
+          <rect x="0" y="55" width="180" height="32" fill="#c8a870" rx="0"/>
+          <rect x="0" y="55" width="36" height="32" fill="#d4b880"/>
+          <rect x="72" y="55" width="36" height="32" fill="#d4b880"/>
+          <rect x="144" y="55" width="36" height="32" fill="#d4b880"/>
+          <line x1="0" y1="55" x2="180" y2="55" stroke="#a08050" stroke-width="2.5"/>
+          <line x1="0" y1="85" x2="180" y2="85" stroke="#8a6840" stroke-width="1.5"/>
+          <rect x="12" y="87" width="12" height="43" fill="#8a6030" rx="3"/>
+          <rect x="156" y="87" width="12" height="43" fill="#8a6030" rx="3"/>
+          <rect x="0" y="85" width="180" height="45" fill="#b09068"/>
+          <rect x="80" y="10" width="20" height="46" fill="#5DCAA5" rx="6"/>
+          <rect x="82" y="12" width="6" height="38" fill="rgba(255,255,255,0.22)" rx="3"/>
+          <rect x="83" y="6" width="14" height="8" fill="#1D9E75" rx="3"/>
+          <rect x="85" y="2" width="10" height="7" fill="#16876A" rx="2"/>
+          <rect x="81" y="26" width="18" height="18" fill="rgba(255,255,255,0.25)" rx="3"/>
+          <ellipse cx="90" cy="56" rx="14" ry="4" fill="rgba(0,0,0,0.18)"/>
+          <path d="M 40 55 Q 90 0 140 55" fill="none" stroke="rgba(93,202,165,0.45)" stroke-width="2" stroke-dasharray="4,3"/>
+          <text x="90" y="123" font-family="system-ui" font-size="9" fill="#5a3a10" text-anchor="middle" font-weight="700">BOTTLE FLIP</text>
         </svg>
         <div class="lcard-name">Bottle flip</div>
         <div class="lcard-desc">Land on the table</div>
       </div>
       <div class="lcard" onclick="startLevel(3)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="80" fill="#d4c8b8" rx="6"/>
-          <rect x="54" y="6" width="14" height="10" rx="2" fill="#c8b898" stroke="#999" stroke-width="0.5"/>
-          <line x1="61" y1="16" x2="61" y2="50" stroke="#777" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M61,50 A20,20 0 1,0 41,30" fill="none" stroke="#888" stroke-width="3.5" stroke-linecap="round"/>
-          <circle cx="41" cy="30" r="3.5" fill="#aaa"/>
-          <circle cx="88" cy="42" r="8" fill="#d4a820"/>
-          <circle cx="88" cy="42" r="5" fill="#e8c840"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#d8ccbc"/>
+          <rect x="4" y="4" width="84" height="122" fill="#e4d8c8" rx="6"/>
+          <rect x="92" y="4" width="84" height="122" fill="#e4d8c8" rx="6"/>
+          <rect x="78" y="10" width="24" height="14" fill="#c8b898" rx="3"/>
+          <circle cx="84" cy="17" r="2.5" fill="#888"/>
+          <circle cx="96" cy="17" r="2.5" fill="#888"/>
+          <line x1="90" y1="24" x2="90" y2="74" stroke="#777" stroke-width="5" stroke-linecap="round"/>
+          <path d="M90,74 A22,22 0 1,0 68,52" fill="none" stroke="#888" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="68" cy="52" r="5.5" fill="#aaa"/>
+          <circle cx="68" cy="66" r="10" fill="none" stroke="#d4a820" stroke-width="3.5"/>
+          <rect x="76" y="63" width="18" height="7" fill="#d4a820" rx="2"/>
+          <ellipse cx="91" cy="66" rx="9" ry="5" fill="#e0b428"/>
+          <rect x="80" y="58" width="3" height="5" fill="#e8c840"/>
+          <rect x="84" y="58" width="3" height="4" fill="#e8c840"/>
+          <rect x="88" y="58" width="3" height="6" fill="#e8c840"/>
+          <text x="90" y="123" font-family="system-ui" font-size="9" fill="#5a3a10" text-anchor="middle" font-weight="700">KEYS ON HOOK</text>
         </svg>
         <div class="lcard-name">Keys on hook</div>
         <div class="lcard-desc">Toss and hook it</div>
       </div>
       <div class="lcard" onclick="startLevel(4)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="80" fill="#2a3a2a" rx="6"/>
-          <polygon points="0,52 120,52 100,36 20,36" fill="#1a6a9a"/>
-          <line x1="20" y1="36" x2="0" y2="52" stroke="#fff" stroke-width="1"/>
-          <line x1="100" y1="36" x2="120" y2="52" stroke="#fff" stroke-width="1"/>
-          <line x1="20" y1="36" x2="100" y2="36" stroke="#fff" stroke-width="1"/>
-          <rect x="52" y="18" width="16" height="22" rx="2" fill="#c0392b"/>
-          <ellipse cx="60" cy="18" rx="8" ry="3" fill="rgba(0,0,0,0.4)"/>
-          <circle cx="30" cy="54" r="5" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#1a2a1a"/>
+          <rect x="0" y="0" width="180" height="52" fill="#243424" rx="10"/>
+          <polygon points="0,0 28,52 0,110" fill="#1e2e1e"/>
+          <polygon points="180,0 152,52 180,110" fill="#1e2e1e"/>
+          <polygon points="0,110 180,110 152,52 28,52" fill="#1a6a9a"/>
+          <line x1="28" y1="52" x2="0" y2="110" stroke="#fff" stroke-width="1.5"/>
+          <line x1="152" y1="52" x2="180" y2="110" stroke="#fff" stroke-width="1.5"/>
+          <line x1="28" y1="52" x2="152" y2="52" stroke="#fff" stroke-width="1.5"/>
+          <line x1="0" y1="110" x2="180" y2="110" stroke="#fff" stroke-width="1.5"/>
+          <line x1="90" y1="52" x2="90" y2="110" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <polygon points="76,24 104,24 100,40 80,40" fill="#c0392b"/>
+          <line x1="77" y1="29" x2="103" y2="29" stroke="#a93226" stroke-width="1.2"/>
+          <ellipse cx="90" cy="24" rx="14" ry="3.5" fill="rgba(0,0,0,0.5)"/>
+          <circle cx="20" cy="88" r="7" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+          <path d="M 20 86 Q 55 60 90 57" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <ellipse cx="55" cy="52" rx="10" ry="3" fill="rgba(255,255,100,0.5)"/>
+          <rect x="0" y="110" width="180" height="20" fill="#0a0a0a"/>
+          <text x="90" y="127" font-family="system-ui" font-size="9" fill="#5DCAA5" text-anchor="middle" font-weight="700">PING PONG</text>
         </svg>
         <div class="lcard-name">Ping pong</div>
         <div class="lcard-desc">Bounce into cup</div>
       </div>
       <div class="lcard" onclick="startLevel(5)">
-        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a4a"/><stop offset="60%" stop-color="#c0502a"/><stop offset="100%" stop-color="#f0a040"/></linearGradient></defs>
-          <rect width="120" height="80" fill="url(#sg)" rx="6"/>
-          <circle cx="60" cy="42" r="10" fill="#ffcc44" opacity="0.9"/>
-          <rect x="0" y="52" width="120" height="28" fill="#1a0f25" rx="0"/>
-          <rect x="0" y="50" width="120" height="5" fill="#281838"/>
-          <ellipse cx="30" cy="52" rx="15" ry="4" fill="#c06020" opacity="0.5"/>
-          <ellipse cx="90" cy="52" rx="10" ry="3" fill="#c06020" opacity="0.3"/>
-          <rect x="78" y="38" width="42" height="16" fill="#4a2e14" rx="2"/>
-          <rect x="80" y="40" width="8" height="12" fill="#8a5a30"/>
-          <rect x="90" y="40" width="8" height="12" fill="#7a4e28"/>
-          <rect x="100" y="40" width="8" height="12" fill="#8a5a30"/>
-          <rect x="110" y="40" width="8" height="12" fill="#7a4e28"/>
-          <ellipse cx="45" cy="52" rx="5" ry="2" fill="#7a7868"/>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#1a1a4a"/>
+          <rect x="0" y="15" width="180" height="25" fill="#4a2060" opacity="0.7"/>
+          <rect x="0" y="30" width="180" height="25" fill="#c0502a" opacity="0.6"/>
+          <rect x="0" y="48" width="180" height="18" fill="#e8802a" opacity="0.7"/>
+          <rect x="0" y="58" width="180" height="12" fill="#f0a040" opacity="0.8"/>
+          <circle cx="90" cy="62" r="14" fill="#f0a040" opacity="0.6"/>
+          <circle cx="90" cy="62" r="10" fill="#ffcc44" opacity="0.85"/>
+          <circle cx="90" cy="62" r="6" fill="#fff8c0"/>
+          <polygon points="0,75 0,50 22,32 42,50 65,22 88,44 110,20 132,40 155,28 175,38 180,35 180,75" fill="#2a1a3a"/>
+          <rect x="0" y="73" width="180" height="4" fill="#180f25"/>
+          <rect x="0" y="77" width="180" height="45" fill="#a04818" rx="0"/>
+          <rect x="0" y="77" width="180" height="8" fill="#c06020"/>
+          <polygon points="83,77 97,77 108,122 72,122" fill="rgba(255,200,60,0.3)"/>
+          <ellipse cx="48" cy="84" rx="9" ry="2.8" fill="none" stroke="rgba(255,180,60,0.7)" stroke-width="1.5"/>
+          <ellipse cx="70" cy="88" rx="7" ry="2.2" fill="none" stroke="rgba(255,180,60,0.55)" stroke-width="1.2"/>
+          <path d="M 140 96 Q 90 68 55 82 Q 40 76 30 84" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <ellipse cx="30" cy="84" rx="7" ry="4" fill="#7a7868"/>
+          <rect x="130" y="96" width="50" height="14" fill="#4a2e14" rx="2"/>
+          <rect x="130" y="90" width="50" height="8" fill="#6a3e20"/>
+          <text x="90" y="127" font-family="system-ui" font-size="9" fill="#ffcc44" text-anchor="middle" font-weight="700">STONE SKIP</text>
         </svg>
         <div class="lcard-name">Stone skipping</div>
         <div class="lcard-desc">Skip across the lake</div>
+      </div>
+      <div class="lcard" onclick="startLevel(6)">
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="130" rx="10" fill="#2a1a0a"/>
+          <rect x="0" y="0" width="45" height="130" fill="#3a2a10" rx="0"/>
+          <rect x="90" y="0" width="45" height="130" fill="#3a2a10"/>
+          <line x1="45" y1="0" x2="45" y2="130" stroke="#1a0f05" stroke-width="3"/>
+          <line x1="90" y1="0" x2="90" y2="130" stroke="#1a0f05" stroke-width="3"/>
+          <line x1="135" y1="0" x2="135" y2="130" stroke="#1a0f05" stroke-width="3"/>
+          <rect x="0" y="75" width="180" height="8" fill="#4a3018"/>
+          <rect x="0" y="97" width="180" height="33" fill="#1a0e04"/>
+          <rect x="56" y="0" width="68" height="10" fill="#5a4020"/>
+          <ellipse cx="90" cy="14" rx="24" ry="10" fill="rgba(255,220,100,0.15)"/>
+          <circle cx="90" cy="57" r="34" fill="#5a3818"/>
+          <circle cx="90" cy="57" r="30" fill="#4a2e12"/>
+          <circle cx="90" cy="57" r="26" fill="#6a4820"/>
+          <circle cx="90" cy="57" r="24" fill="#1a1a1a"/>
+          <circle cx="90" cy="57" r="20" fill="#e8e8e8"/>
+          <circle cx="90" cy="57" r="14" fill="#1a1a1a"/>
+          <circle cx="90" cy="57" r="10" fill="#e8e8e8"/>
+          <circle cx="90" cy="57" r="6" fill="#27ae60"/>
+          <circle cx="90" cy="57" r="3" fill="#c0392b"/>
+          <line x1="130" y1="75" x2="126" y2="57" stroke="#c8a830" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="126,57 122,68 130,65" fill="#E24B4A"/>
+          <circle cx="98" cy="42" r="4" fill="#E24B4A" opacity="0.6"/>
+          <text x="90" y="123" font-family="system-ui" font-size="9" fill="#c8a830" text-anchor="middle" font-weight="700">DART THROW</text>
+        </svg>
+        <div class="lcard-name">Dart throw</div>
+        <div class="lcard-desc">Hit the bullseye</div>
       </div>
     </div>
   </div>
@@ -167,6 +268,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;}
     <button id="tap-btn">Tap to throw</button>
     <div id="msg"></div>
     <div id="streak-row"></div>
+    <div id="speed-row"></div>
     <button id="back-btn" onclick="goHome()">← Menu</button>
   </div>
 </div><script>
@@ -181,41 +283,48 @@ const tapBtn=document.getElementById('tap-btn');
 const msgEl=document.getElementById('msg');
 const streakEl=document.getElementById('streak-row');
 const diffBadge=document.getElementById('difficulty-badge');
+const speedEl=document.getElementById('speed-row');
+
 const LEVEL_DATA=[
-  {name:'Basketball — backwards full court',btn:'Tap to throw'},
-  {name:'Phone slide — birds eye view',btn:'Tap to slide'},
-  {name:'Bottle flip — land it on the table',btn:'Tap to flip'},
-  {name:'Keys on hook — toss it!',btn:'Tap to toss'},
-  {name:'Ping pong — bounce it in!',btn:'Tap to throw'},
-  {name:'Stone skipping — skip it across!',btn:'Tap to skip'}
+  {name:'Basketball — backwards full court',btn:'Tap to throw',dart:false},
+  {name:'Phone slide — birds eye view',btn:'Tap to slide',dart:false},
+  {name:'Bottle flip — land it on the table',btn:'Tap to flip',dart:false},
+  {name:'Keys on hook — toss it!',btn:'Tap to toss',dart:false},
+  {name:'Ping pong — bounce it in!',btn:'Tap to throw',dart:false},
+  {name:'Stone skipping — skip it across!',btn:'Tap to skip',dart:false},
+  {name:'Dart throw — hit the bullseye!',btn:'Tap to throw!',dart:true}
 ];
+
 const TABLE_TOP=255,BOTTLE_H=82,BOTTLE_W=32;
 const HOOP_X=165,HOOP_Y=105,PLAYER_X=760,PLAYER_Y=320,FLOOR_Y=328,BALL_R=20;
 const MX=400,MY=65,STEM_BOT_Y=MY+135,ARC_R=42;
-const ARC_CX=MX-ARC_R,ARC_CY=STEM_BOT_Y;
-const TIP_X=MX-ARC_R,TIP_Y=STEM_BOT_Y-ARC_R;
+const ARC_CX=MX-ARC_R,ARC_CY=STEM_BOT_Y,TIP_X=MX-ARC_R,TIP_Y=STEM_BOT_Y-ARC_R;
 const HAND_X=750,HAND_Y=305;
 const PP_TABLE_NEAR_Y=340,PP_TABLE_FAR_Y=200;
 const PP_TABLE_LEFT_NEAR=20,PP_TABLE_RIGHT_NEAR=880;
 const PP_TABLE_LEFT_FAR=280,PP_TABLE_RIGHT_FAR=620;
-const PP_WALL_Y=60;
-const PP_CUP_CX=W/2,PP_CUP_TOP_Y=PP_TABLE_FAR_Y-10;
+const PP_WALL_Y=60,PP_CUP_CX=W/2,PP_CUP_TOP_Y=PP_TABLE_FAR_Y-10;
 const PP_CUP_W_TOP=36,PP_CUP_W_BOT=26,PP_CUP_H=38;
-const PP_HAND_X=680,PP_HAND_Y=340;
-const PP_BALL_R=10;
+const PP_HAND_X=680,PP_HAND_Y=340,PP_BALL_R=10;
 const SS_WATER_Y=185,SS_FAR_BANK_Y=148,SS_STONE_R=8;
-const SS_PX=570,SS_PY=310;
-const SS_SHOULDER_X=SS_PX-10,SS_SHOULDER_Y=SS_PY-85;
-const SS_ARM_LEN=35;
+const SS_PX=570,SS_PY=310,SS_SHOULDER_X=SS_PX-10,SS_SHOULDER_Y=SS_PY-85,SS_ARM_LEN=35;
 const SS_ANGLE_START=-Math.PI/2,SS_ANGLE_END=Math.PI/2,SS_ANGLE_REL=-0.25;
 const SS_REL_T=(SS_ANGLE_REL-SS_ANGLE_START)/(SS_ANGLE_END-SS_ANGLE_START);
 const SS_REL_X=SS_SHOULDER_X+Math.cos(SS_ANGLE_REL)*SS_ARM_LEN;
 const SS_REL_Y=SS_SHOULDER_Y+Math.sin(SS_ANGLE_REL)*SS_ARM_LEN;
 const SS_SKIP1={x:SS_REL_X-95,y:SS_WATER_Y},SS_SKIP2={x:SS_REL_X-162,y:SS_WATER_Y},SS_SKIP3={x:SS_REL_X-214,y:SS_WATER_Y};
 const SS_LAND={x:SS_REL_X-248,y:SS_FAR_BANK_Y+12},SS_WEAK_LAND={x:SS_REL_X-55,y:SS_WATER_Y};
+
+// Dart constants
+const D_BX=480,D_BY=200,D_BR=130;
+
 let mPos=0,mDir=1,animId=null,locked=false,lives=3,curLevel=0,flyRaf=null;
 let perfectWidth=14,perfectLeft=43,streak=0,mSpeed=0.5;
 let idleT=0,idleRaf=null,wallCracks=[],shakeX=0,shakeY=0,ssRipples=[];
+// Dart state
+let dartSpeed=1.0,dartCursorX=D_BX,dartCursorY=D_BY,dartT=0,dartNoiseT=0;
+let dartLandX=D_BX,dartLandY=D_BY,dartAnimId=null,dartFlyRaf=null;
+let dartsOnBoard=[];
 
 function setPerfect(){
   const tw=track.offsetWidth;
@@ -231,20 +340,26 @@ function isPerfect(p){return p>=perfectLeft&&p<=perfectLeft+perfectWidth;}
 function updateLives(){[0,1,2].forEach(i=>{document.getElementById('ld'+i).className='ldot'+(i>=lives?' gone':'');});}
 function goHome(){
   cancelAnimationFrame(animId);cancelAnimationFrame(flyRaf);cancelAnimationFrame(idleRaf);
+  cancelAnimationFrame(dartAnimId);cancelAnimationFrame(dartFlyRaf);
   document.getElementById('home-screen').className='screen active';
   document.getElementById('game-screen').className='screen';
+  speedEl.textContent='';
 }
 function startLevel(idx){
   curLevel=idx;lives=3;locked=false;streak=0;
-  perfectWidth=14;perfectLeft=43;mSpeed=0.5;wallCracks=[];ssRipples=[];
+  perfectWidth=14;perfectLeft=43;mSpeed=0.5;
+  wallCracks=[];ssRipples=[];dartsOnBoard=[];dartSpeed=1.0;
   document.getElementById('home-screen').className='screen';
   document.getElementById('game-screen').className='screen active';
   document.getElementById('glvl').textContent=LEVEL_DATA[idx].name;
   tapBtn.textContent=LEVEL_DATA[idx].btn;
   tapBtn.style.display='';
-  document.getElementById('meter-outer').style.display='';
-  streakEl.textContent='';
-  updateLives();setPerfect();resetToIdle();startMeter();
+  streakEl.textContent='';speedEl.textContent='';
+  const isDart=LEVEL_DATA[idx].dart;
+  document.getElementById('meter-outer').style.display=isDart?'none':'';
+  updateLives();
+  if(isDart){startDartGame();}
+  else{setPerfect();resetToIdle();startMeter();}
 }
 function resetToIdle(){
   cancelAnimationFrame(idleRaf);idleT=0;
@@ -266,43 +381,18 @@ function eio(t){return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
 function lerp(a,b,t){return a+(b-a)*t;}
 
 function doShot(){
+  if(curLevel===6){doDartThrow();return;}
   if(locked)return;
   locked=true;cancelAnimationFrame(animId);cancelAnimationFrame(idleRaf);
   const pos=mPos,ok=isPerfect(pos),norm=pos/100;
-  const isWeak=norm<(perfectLeft/100);
-  const isStrong=norm>(perfectLeft+perfectWidth)/100;
-  if(curLevel===0&&isWeak){
-    runWeakShot(norm,()=>{
-      lives--;updateLives();streak=0;streakEl.textContent='';
-      msgEl.textContent='Too weak - fell short!';msgEl.style.color='#c0392b';
-      if(lives<=0){showGameOver();return;}
-      setTimeout(()=>{resetToIdle();startMeter();},1400);
-    });
-    return;
-  }
+  const isWeak=norm<(perfectLeft/100),isStrong=norm>(perfectLeft+perfectWidth)/100;
+  if(curLevel===0&&isWeak){runWeakShot(norm,()=>{lives--;updateLives();streak=0;streakEl.textContent='';msgEl.textContent='Too weak!';msgEl.style.color='#c0392b';if(lives<=0){showGameOver();return;}setTimeout(()=>{resetToIdle();startMeter();},1400);});return;}
   if(curLevel===3&&isStrong){runBreakWall(norm);return;}
-  if(curLevel===4&&isWeak){
-    runPingPongWeak(()=>{
-      lives--;updateLives();streak=0;streakEl.textContent='';
-      msgEl.textContent='Too weak - bounced short!';msgEl.style.color='#c0392b';
-      if(lives<=0){showGameOver();return;}
-      setTimeout(()=>{resetToIdle();startMeter();},1800);
-    });
-    return;
-  }
-  if(curLevel===5&&isWeak){
-    runStoneWeak(()=>{
-      lives--;updateLives();streak=0;streakEl.textContent='';
-      msgEl.textContent='Too weak — it sank!';msgEl.style.color='#c0392b';
-      if(lives<=0){showGameOver();return;}
-      setTimeout(()=>{resetToIdle();startMeter();},2000);
-    });
-    return;
-  }
+  if(curLevel===4&&isWeak){runPingPongWeak(()=>{lives--;updateLives();streak=0;streakEl.textContent='';msgEl.textContent='Too weak!';msgEl.style.color='#c0392b';if(lives<=0){showGameOver();return;}setTimeout(()=>{resetToIdle();startMeter();},1800);});return;}
+  if(curLevel===5&&isWeak){runStoneWeak(()=>{lives--;updateLives();streak=0;streakEl.textContent='';msgEl.textContent='Too weak — it sank!';msgEl.style.color='#c0392b';if(lives<=0){showGameOver();return;}setTimeout(()=>{resetToIdle();startMeter();},2000);});return;}
   let t=0;
   function fly(){
-    t+=0.018;
-    if(curLevel===5)t+=0.006;
+    t+=0.018;if(curLevel===5)t+=0.006;
     if(t<1){drawScene('fly',t,norm);flyRaf=requestAnimationFrame(fly);}
     else{
       drawScene(ok?'success':'fail',1,norm);
@@ -318,10 +408,9 @@ function doShot(){
       }else{
         streak=0;streakEl.textContent='';lives--;updateLives();
         if(lives<=0){showGameOver();return;}
-        const wm=curLevel===2?"Didn't spin enough!":curLevel===3?'Too weak!':curLevel===4?'Too weak - bounced short!':curLevel===5?'Too weak — it sank!':'Too weak!';
-        const sm=curLevel===2?"Spun too much!":curLevel===3?'Too strong!':curLevel===4?'Too strong - smashed the wall!':curLevel===5?'Too strong — crashed the bank!':'Too strong!';
-        msgEl.textContent=pos<perfectLeft?wm:sm;
-        msgEl.style.color='#c0392b';
+        const wm=curLevel===2?"Didn't spin enough!":curLevel===3?'Too weak!':curLevel===4?'Too weak!':curLevel===5?'Too weak!':'Too weak!';
+        const sm=curLevel===2?"Spun too much!":curLevel===3?'Too strong!':curLevel===4?'Too strong!':curLevel===5?'Too strong!':'Too strong!';
+        msgEl.textContent=pos<perfectLeft?wm:sm;msgEl.style.color='#c0392b';
         setTimeout(()=>{resetToIdle();startMeter();},1800);
       }
     }
@@ -334,7 +423,7 @@ function drawScene(phase,t,power){
   else if(curLevel===2)drawBottle(phase,t,power);
   else if(curLevel===3)drawKeysLevel(phase,t,power);
   else if(curLevel===4)drawPingPong(phase,t,power);
-  else drawStoneSkip(phase,t,power);
+  else if(curLevel===5)drawStoneSkip(phase,t,power);
 }
 </script><script>
 function drawCourt(){
@@ -381,10 +470,7 @@ function drawPlayer(armAngle,holdBall,iT){
 }
 function ballCurve(t,mode){
   var e=eio(t);
-  if(mode==='perfect'){
-    var sx=PLAYER_X,sy=PLAYER_Y-95,ex=HOOP_X,ey=HOOP_Y,mx=(sx+ex)/2,my=Math.min(sy,ey)-150;
-    return{x:(1-e)*(1-e)*sx+2*(1-e)*e*mx+e*e*ex,y:(1-e)*(1-e)*sy+2*(1-e)*e*my+e*e*ey};
-  }
+  if(mode==='perfect'){var sx=PLAYER_X,sy=PLAYER_Y-95,ex=HOOP_X,ey=HOOP_Y,mx=(sx+ex)/2,my=Math.min(sy,ey)-150;return{x:(1-e)*(1-e)*sx+2*(1-e)*e*mx+e*e*ex,y:(1-e)*(1-e)*sy+2*(1-e)*e*my+e*e*ey};}
   var sx=PLAYER_X,sy=PLAYER_Y-95,ex=30,ey=FLOOR_Y-BALL_R,mx=(sx+ex)/2-40,my=sy-180;
   return{x:(1-e)*(1-e)*sx+2*(1-e)*e*mx+e*e*ex,y:(1-e)*(1-e)*sy+2*(1-e)*e*my+e*e*ey};
 }
@@ -406,7 +492,7 @@ function drawBasketball(phase,t,pw,iT){
     var p=ballCurve(1,'strong');
     for(var i=1;i<20;i++){var fp=ballCurve(i/20,'strong');ctx.fillStyle='rgba(216,90,48,'+(i/20*0.25)+')';ctx.beginPath();ctx.arc(fp.x,fp.y,4,0,Math.PI*2);ctx.fill();}
     drawBall(p.x,FLOOR_Y-BALL_R,Math.PI*0.3);
-    ctx.fillStyle='#c0392b';ctx.font='bold 22px system-ui';ctx.textAlign='center';ctx.fillText('Too strong - overshot!',W/2,210);
+    ctx.fillStyle='#c0392b';ctx.font='bold 22px system-ui';ctx.textAlign='center';ctx.fillText('Too strong!',W/2,210);
   }
 }
 function runWeakShot(norm,onDone){
@@ -467,8 +553,7 @@ function drawTableScene(){
   for(var i=0;i<5;i++){ctx.fillStyle=grains[i%grains.length];ctx.fillRect(i*(W/5),TABLE_TOP,W/5,H-TABLE_TOP);}
   ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.lineWidth=0.5;
   for(var i=1;i<5;i++){ctx.beginPath();ctx.moveTo(i*(W/5),TABLE_TOP);ctx.lineTo(i*(W/5),H);ctx.stroke();}
-  ctx.fillStyle='#a08060';ctx.fillRect(0,TABLE_TOP,W,7);
-  ctx.fillStyle='#8a6040';ctx.fillRect(0,TABLE_TOP,W,3);
+  ctx.fillStyle='#a08060';ctx.fillRect(0,TABLE_TOP,W,7);ctx.fillStyle='#8a6040';ctx.fillRect(0,TABLE_TOP,W,3);
   for(var i=0;i<5;i++){ctx.fillStyle='#8a6040';ctx.beginPath();ctx.roundRect(40+i*185,H-26,26,28,4);ctx.fill();}
   ctx.fillStyle='#c8a870';ctx.fillRect(0,0,W,TABLE_TOP);
   for(var i=0;i<16;i++){ctx.fillStyle=i%2?'#e0d8c8':'#ece4d4';ctx.fillRect(i*64,0,64,TABLE_TOP);}
@@ -525,15 +610,11 @@ function drawRoom(withCracks){
   }
 }
 function drawHook(cracked){
-  ctx.fillStyle=cracked?'#b0a080':'#c8b898';
-  ctx.beginPath();ctx.roundRect(MX-13,MY-5,28,18,3);ctx.fill();
+  ctx.fillStyle=cracked?'#b0a080':'#c8b898';ctx.beginPath();ctx.roundRect(MX-13,MY-5,28,18,3);ctx.fill();
   ctx.strokeStyle='#999';ctx.lineWidth=1;ctx.strokeRect(MX-13,MY-5,28,18);
-  ctx.fillStyle='#888';ctx.beginPath();ctx.arc(MX-4,MY+5,2.5,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.arc(MX+10,MY+5,2.5,0,Math.PI*2);ctx.fill();
-  ctx.strokeStyle='#777';ctx.lineWidth=7;ctx.lineCap='round';
-  ctx.beginPath();ctx.moveTo(MX,MY+13);ctx.lineTo(MX,STEM_BOT_Y);ctx.stroke();
-  ctx.strokeStyle='#888';ctx.lineWidth=7;ctx.lineCap='round';
-  ctx.beginPath();ctx.arc(ARC_CX,ARC_CY,ARC_R,0,-Math.PI/2,true);ctx.stroke();
+  ctx.fillStyle='#888';ctx.beginPath();ctx.arc(MX-4,MY+5,2.5,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(MX+10,MY+5,2.5,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='#777';ctx.lineWidth=7;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(MX,MY+13);ctx.lineTo(MX,STEM_BOT_Y);ctx.stroke();
+  ctx.strokeStyle='#888';ctx.lineWidth=7;ctx.lineCap='round';ctx.beginPath();ctx.arc(ARC_CX,ARC_CY,ARC_R,0,-Math.PI/2,true);ctx.stroke();
   ctx.fillStyle='#aaa';ctx.beginPath();ctx.arc(TIP_X,TIP_Y,6,0,Math.PI*2);ctx.fill();
 }
 function drawHandKeys(holdKeys){
@@ -556,14 +637,12 @@ function drawKeyRing(x,y,angle,small){
   if(!small){ctx.fillStyle='rgba(0,0,0,0.1)';ctx.beginPath();ctx.ellipse(4*s,8*s,11*s,3*s,0,0,Math.PI*2);ctx.fill();}
   ctx.strokeStyle='#d4a820';ctx.lineWidth=3.5*s;ctx.beginPath();ctx.arc(0,0,9*s,0,Math.PI*2);ctx.stroke();
   ctx.fillStyle='rgba(212,168,32,0.15)';ctx.beginPath();ctx.arc(0,0,9*s,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='#d4a820';
-  ctx.beginPath();ctx.ellipse(15*s,0,7*s,4*s,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#d4a820';ctx.beginPath();ctx.ellipse(15*s,0,7*s,4*s,0,0,Math.PI*2);ctx.fill();
   ctx.fillRect(8*s,-2.5*s,12*s,5*s);
   ctx.fillStyle='#e8c840';ctx.fillRect(16*s,-5*s,3*s,4*s);ctx.fillRect(20*s,-5*s,3*s,3*s);ctx.fillRect(23*s,-5*s,2*s,5*s);
   ctx.save();ctx.rotate(Math.PI*0.45);
   ctx.fillStyle='#a8a8c0';ctx.beginPath();ctx.ellipse(13*s,0,5*s,3*s,0,0,Math.PI*2);ctx.fill();
-  ctx.fillRect(8*s,-2*s,10*s,4*s);
-  ctx.fillStyle='#c8c8d8';ctx.fillRect(13*s,-4*s,2*s,3*s);ctx.fillRect(16*s,-4*s,2*s,4*s);
+  ctx.fillRect(8*s,-2*s,10*s,4*s);ctx.fillStyle='#c8c8d8';ctx.fillRect(13*s,-4*s,2*s,3*s);ctx.fillRect(16*s,-4*s,2*s,4*s);
   ctx.restore();
   ctx.save();ctx.rotate(-Math.PI*0.3);
   ctx.fillStyle='#3a6fa0';ctx.beginPath();ctx.roundRect(7*s,-3.5*s,9*s,7*s,2*s);ctx.fill();
@@ -573,18 +652,15 @@ function drawKeyRing(x,y,angle,small){
 function keyArc(t,mode){
   var e=eio(t);
   if(mode==='perfect'){
-    var sx=HAND_X+15,sy=HAND_Y-15,ex=TIP_X,ey=TIP_Y;
-    var mx=(sx+ex)/2+20,my=Math.min(sy,ey)-100;
+    var sx=HAND_X+15,sy=HAND_Y-15,ex=TIP_X,ey=TIP_Y,mx=(sx+ex)/2+20,my=Math.min(sy,ey)-100;
     return{x:(1-e)*(1-e)*sx+2*(1-e)*e*mx+e*e*ex,y:(1-e)*(1-e)*sy+2*(1-e)*e*my+e*e*ey,rot:t*Math.PI*3};
   }
-  var sx=HAND_X+15,sy=HAND_Y-15,ex=HAND_X-170,ey=345;
-  var mx=(sx+ex)/2,my=sy-60;
+  var sx=HAND_X+15,sy=HAND_Y-15,ex=HAND_X-170,ey=345,mx=(sx+ex)/2,my=sy-60;
   return{x:(1-e)*(1-e)*sx+2*(1-e)*e*mx+e*e*ex,y:(1-e)*(1-e)*sy+2*(1-e)*e*my+e*e*ey,rot:t*Math.PI*2};
 }
 function drawKeysLevel(phase,t,pw){
   ctx.clearRect(0,0,W,H);
-  var isWeak=pw<(perfectLeft/100),isStrong=pw>(perfectLeft+perfectWidth)/100;
-  var mode=isWeak?'weak':'perfect';
+  var isWeak=pw<(perfectLeft/100),mode=isWeak?'weak':'perfect';
   drawRoom(phase==='wallbreak');drawHook(phase==='wallbreak');
   if(phase==='idle'){drawHandKeys(true);return;}
   drawHandKeys(false);
@@ -598,10 +674,10 @@ function drawKeysLevel(phase,t,pw){
     confetti();ctx.fillStyle='#27ae60';ctx.font='bold 30px system-ui';ctx.textAlign='center';ctx.fillText('Hooked it!',W/2,55);
   }else if(phase==='fail'){
     drawKeyRing(HAND_X-165,343,0.4,false);
-    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too weak - fell short!',W/2,55);
+    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too weak!',W/2,55);
   }else if(phase==='wallbreak'){
     drawKeyRing(MX-20,MY+85,Math.PI*0.25,false);
-    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too strong - smashed the wall!',W/2,55);
+    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too strong!',W/2,55);
   }
 }
 function runBreakWall(norm){
@@ -616,7 +692,7 @@ function runBreakWall(norm){
       shakeX=0;shakeY=0;drawKeysLevel('wallbreak',1,norm);
       streak=0;streakEl.textContent='';lives--;updateLives();
       if(lives<=0){showGameOver();return;}
-      msgEl.textContent='Too strong - smashed the wall!';msgEl.style.color='#c0392b';
+      msgEl.textContent='Too strong!';msgEl.style.color='#c0392b';
       setTimeout(function(){startMeter();},2200);
     }
   }
@@ -683,7 +759,6 @@ function drawPPCup(hasBall){
   ctx.beginPath();ctx.moveTo(cx-PP_CUP_W_TOP/2+2,ty+2);ctx.lineTo(cx-PP_CUP_W_TOP/2+8,ty+2);ctx.lineTo(cx-PP_CUP_W_BOT/2+5,ty+PP_CUP_H-3);ctx.lineTo(cx-PP_CUP_W_BOT/2,ty+PP_CUP_H-3);ctx.closePath();ctx.fill();
   ctx.fillStyle='rgba(0,0,0,0.5)';ctx.beginPath();ctx.ellipse(cx,ty,PP_CUP_W_TOP/2,5,0,0,Math.PI*2);ctx.fill();
   if(hasBall){ctx.fillStyle='#f5f5f5';ctx.beginPath();ctx.arc(cx,ty+8,7,0,Math.PI*2);ctx.fill();}
-  ctx.fillStyle='rgba(0,0,0,0.15)';ctx.beginPath();ctx.ellipse(cx,ty+PP_CUP_H,PP_CUP_W_BOT/2+3,4,0,0,Math.PI*2);ctx.fill();
 }
 function drawPPHand(holdBall){
   var x=PP_HAND_X,y=PP_HAND_Y;
@@ -726,7 +801,7 @@ function drawPingPong(phase,t,pw){
     confetti();ctx.fillStyle='#27ae60';ctx.font='bold 28px system-ui';ctx.textAlign='center';ctx.fillText('In the cup!',W/2,65);
   }else if(phase==='fail'){
     drawPPSplat(W/2,PP_WALL_Y+22);drawPPBall(W/2,PP_WALL_Y+34,6,0);
-    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too strong - smashed the wall!',W/2,65);
+    ctx.fillStyle='#c0392b';ctx.font='bold 20px system-ui';ctx.textAlign='center';ctx.fillText('Too strong!',W/2,65);
   }
 }
 </script><script>
@@ -844,13 +919,12 @@ function runStoneWeak(onDone){
     ssRipples.forEach(function(r){ssDrawRipple(r.x,r.y,r.age,r.maxAge);r.age++;});
     ssRipples=ssRipples.filter(function(r){return r.age<r.maxAge;});
     ssBridge();
-    var throwT=Math.min(1,t/0.22);
-    var arm=ssDrawPerson(throwT);
+    var throwT=Math.min(1,t/0.22),arm=ssDrawPerson(throwT);
     if(throwT<SS_REL_T) ssDrawStone(arm.hx,arm.hy,SS_STONE_R,0.3);
     t+=0.014;
-    if(t<0.4){var pe=eio(t/0.4);var sx=lerp(SS_REL_X,SS_WEAK_LAND.x,pe),sy=lerp(SS_REL_Y,SS_WATER_Y,pe)-Math.sin(Math.PI*pe)*32;ssDrawStone(sx,sy,SS_STONE_R,t*Math.PI*4);}
+    if(t<0.4){var pe=eio(t/0.4),sx=lerp(SS_REL_X,SS_WEAK_LAND.x,pe),sy=lerp(SS_REL_Y,SS_WATER_Y,pe)-Math.sin(Math.PI*pe)*32;ssDrawStone(sx,sy,SS_STONE_R,t*Math.PI*4);}
     else{
-      var pe=eio((t-0.4)/0.6);var sx=lerp(SS_WEAK_LAND.x,SS_WEAK_LAND.x-15,pe),sy=SS_WATER_Y+pe*28;
+      var pe=eio((t-0.4)/0.6),sx=lerp(SS_WEAK_LAND.x,SS_WEAK_LAND.x-15,pe),sy=SS_WATER_Y+pe*28;
       if(!sinkDone&&t>=0.4){ssRipples.push({x:SS_WEAK_LAND.x,y:SS_WATER_Y,age:0,maxAge:70});sinkDone=true;}
       ctx.save();ctx.globalAlpha=Math.max(0,1-(sy-SS_WATER_Y)/25);ssDrawStone(sx,sy,SS_STONE_R*(1-pe*0.7),t*Math.PI*3);ctx.restore();
     }
@@ -866,8 +940,7 @@ function drawStoneSkip(phase,t,pw){
   var isWeak=pw<(perfectLeft/100),isStrong=pw>(perfectLeft+perfectWidth)/100;
   var mode=isWeak?'weak':isStrong?'strong':'perfect';
   if(phase==='idle'){var arm=ssDrawPerson(0);ssDrawStone(arm.hx,arm.hy,SS_STONE_R,0.3);return;}
-  var throwT=Math.min(1,t/0.22);
-  var arm=ssDrawPerson(throwT);
+  var throwT=Math.min(1,t/0.22),arm=ssDrawPerson(throwT);
   if(throwT<SS_REL_T) ssDrawStone(arm.hx,arm.hy,SS_STONE_R,0.3);
   if(phase==='fly'){
     var p=ssStonePos(t,mode);
@@ -882,16 +955,206 @@ function drawStoneSkip(phase,t,pw){
   }else if(phase==='fail'){
     ssDrawStone(SS_LAND.x-25,SS_FAR_BANK_Y+14,SS_STONE_R,0.4);
     ctx.fillStyle='rgba(100,60,20,0.3)';ctx.beginPath();ctx.ellipse(SS_LAND.x-25,SS_FAR_BANK_Y+16,16,6,0,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='#e05030';ctx.font='bold 22px system-ui';ctx.textAlign='center';ctx.fillText('Too strong — crashed the bank!',W/2,65);
+    ctx.fillStyle='#e05030';ctx.font='bold 22px system-ui';ctx.textAlign='center';ctx.fillText('Too strong!',W/2,65);
   }
+}
+</script><script>
+// ---- DART GAME ----
+function dartGetCursorPos(){
+  var rx=D_BR*0.82,ry=D_BR*0.82;
+  var nx=Math.sin(dartNoiseT*0.7)*0.3+Math.sin(dartNoiseT*1.3)*0.2;
+  var ny=Math.cos(dartNoiseT*0.5)*0.3+Math.cos(dartNoiseT*1.1)*0.2;
+  return{
+    x:D_BX+rx*(Math.sin(dartT*dartSpeed)*0.7+nx*dartSpeed*0.4),
+    y:D_BY+ry*(Math.sin(dartT*dartSpeed*1.7)*0.7+ny*dartSpeed*0.4)
+  };
+}
+function dartDist(x,y){return Math.sqrt((x-D_BX)*(x-D_BX)+(y-D_BY)*(y-D_BY));}
+function dartGetScore(dist){
+  var r=dist/D_BR;
+  if(r<0.05)return{label:'Bullseye!!',color:'#27ae60',ok:true};
+  if(r<0.12)return{label:'Bull!',color:'#27ae60',ok:true};
+  if(r<0.28)return{label:'Triple!',color:'#2980b9',ok:false};
+  if(r<0.55)return{label:'Good!',color:'#e67e22',ok:false};
+  if(r<0.85)return{label:'On the board',color:'#e67e22',ok:false};
+  if(r<1.05)return{label:'Just on!',color:'#e67e22',ok:false};
+  return{label:'Miss!',color:'#c0392b',ok:false};
+}
+function startDartGame(){
+  locked=false;msgEl.textContent='';msgEl.style.color='';streakEl.textContent='';
+  dartT=0;dartNoiseT=0;dartAnimId=null;
+  updateDartSpeedLabel();dartLoop();
+}
+function updateDartSpeedLabel(){
+  var labels=['','','Fast!','Very fast!','Insane!'];
+  var idx=Math.min(4,Math.floor((dartSpeed-1)/0.4));
+  speedEl.textContent=dartSpeed>1.4?'Speed: '+labels[idx]:'';
+}
+function dartLoop(){
+  cancelAnimationFrame(dartAnimId);
+  dartT+=0.025;dartNoiseT+=0.04*dartSpeed;
+  var p=dartGetCursorPos();dartCursorX=p.x;dartCursorY=p.y;
+  drawDartScene('idle');
+  dartAnimId=requestAnimationFrame(dartLoop);
+}
+function doDartThrow(){
+  if(locked)return;
+  locked=true;cancelAnimationFrame(dartAnimId);
+  dartLandX=dartCursorX;dartLandY=dartCursorY;
+  var dist=dartDist(dartLandX,dartLandY);
+  var result=dartGetScore(dist);
+  var ft=0;
+  function fly(){
+    ft+=0.04;
+    if(ft<1){drawDartScene('fly',ft);dartFlyRaf=requestAnimationFrame(fly);}
+    else{
+      dartsOnBoard.push({x:dartLandX,y:dartLandY});
+      drawDartScene('landed');
+      msgEl.textContent=result.label;msgEl.style.color=result.color;
+      if(result.ok){
+        streak++;streakEl.textContent=streak>1?'Streak: '+streak+' 🔥':'';
+        dartSpeed=Math.min(3.0,dartSpeed*1.22);
+        setTimeout(function(){msgEl.textContent='';startDartGame();},1600);
+      }else{
+        streak=0;streakEl.textContent='';lives--;updateLives();
+        if(lives<=0){showGameOver();return;}
+        dartSpeed=Math.max(1.0,dartSpeed*0.85);
+        setTimeout(function(){msgEl.textContent='';startDartGame();},1600);
+      }
+    }
+  }
+  fly();
+}
+function drawPub(){
+  ctx.fillStyle='#2a1a0a';ctx.fillRect(0,0,W,H);
+  for(var i=0;i<4;i++){ctx.fillStyle=i%2===0?'#3a2a10':'#2e2008';ctx.fillRect(i*(W/4),0,W/4,H);}
+  ctx.strokeStyle='#1a0f05';ctx.lineWidth=6;
+  for(var i=1;i<4;i++){ctx.beginPath();ctx.moveTo(i*W/4,0);ctx.lineTo(i*W/4,H);ctx.stroke();}
+  ctx.fillStyle='#4a3018';ctx.fillRect(0,H*0.62,W,14);ctx.fillStyle='#5a3820';ctx.fillRect(0,H*0.62,W,5);
+  ctx.fillStyle='#1a0e04';ctx.fillRect(0,H*0.76,W,H*0.24);
+  for(var i=0;i<6;i++){ctx.fillStyle=i%2===0?'#231408':'#1e1006';ctx.fillRect(i*(W/6),H*0.76,W/6,H*0.24);}
+  ctx.strokeStyle='#140c04';ctx.lineWidth=2;
+  for(var i=1;i<6;i++){ctx.beginPath();ctx.moveTo(i*W/6,H*0.76);ctx.lineTo(i*W/6,H);ctx.stroke();}
+  ctx.fillStyle='#1a1008';ctx.fillRect(0,0,W,22);
+  ctx.fillStyle='#5a4020';ctx.fillRect(D_BX-28,0,56,26);
+  ctx.fillStyle='#8a6030';ctx.beginPath();ctx.ellipse(D_BX,26,28,10,0,0,Math.PI*2);ctx.fill();
+  var lg=ctx.createRadialGradient(D_BX,26,0,D_BX,26,110);
+  lg.addColorStop(0,'rgba(255,220,100,0.25)');lg.addColorStop(1,'rgba(255,220,100,0)');
+  ctx.fillStyle=lg;ctx.beginPath();ctx.arc(D_BX,26,110,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#5a3818';ctx.beginPath();ctx.arc(D_BX,D_BY,D_BR+28,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#4a2e12';ctx.beginPath();ctx.arc(D_BX,D_BY,D_BR+22,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#6a4820';ctx.beginPath();ctx.arc(D_BX,D_BY,D_BR+16,0,Math.PI*2);ctx.fill();
+}
+function drawDartboard(){
+  var segs=20,outerR=D_BR,doubleR=D_BR*0.9,tripleR=D_BR*0.6,innerR=D_BR*0.4;
+  var blacks=['#1a1a1a','#e8e8e8'],reds=['#c0392b','#27ae60'];
+  var nums=[20,1,18,4,13,6,10,15,2,17,3,19,7,16,8,11,14,9,12,5];
+  for(var i=0;i<segs;i++){
+    var a1=(i/segs)*Math.PI*2-Math.PI/2-Math.PI/segs;
+    var a2=((i+1)/segs)*Math.PI*2-Math.PI/2-Math.PI/segs;
+    ctx.fillStyle=blacks[i%2];ctx.beginPath();ctx.moveTo(D_BX,D_BY);ctx.arc(D_BX,D_BY,outerR,a1,a2);ctx.closePath();ctx.fill();
+    ctx.fillStyle=reds[i%2];
+    ctx.beginPath();ctx.moveTo(D_BX+Math.cos(a1)*doubleR*0.88,D_BY+Math.sin(a1)*doubleR*0.88);ctx.arc(D_BX,D_BY,doubleR,a1,a2);ctx.arc(D_BX,D_BY,doubleR*0.88,a2,a1,true);ctx.closePath();ctx.fill();
+    ctx.fillStyle=reds[i%2];
+    ctx.beginPath();ctx.moveTo(D_BX+Math.cos(a1)*tripleR*0.88,D_BY+Math.sin(a1)*tripleR*0.88);ctx.arc(D_BX,D_BY,tripleR,a1,a2);ctx.arc(D_BX,D_BY,tripleR*0.88,a2,a1,true);ctx.closePath();ctx.fill();
+  }
+  ctx.strokeStyle='rgba(0,0,0,0.4)';ctx.lineWidth=0.8;
+  for(var i=0;i<segs;i++){var a=(i/segs)*Math.PI*2-Math.PI/2-Math.PI/segs;ctx.beginPath();ctx.moveTo(D_BX,D_BY);ctx.lineTo(D_BX+Math.cos(a)*outerR,D_BY+Math.sin(a)*outerR);ctx.stroke();}
+  [outerR,doubleR,doubleR*0.88,tripleR,tripleR*0.88,innerR].forEach(function(r){ctx.strokeStyle='rgba(0,0,0,0.5)';ctx.lineWidth=0.8;ctx.beginPath();ctx.arc(D_BX,D_BY,r,0,Math.PI*2);ctx.stroke();});
+  ctx.fillStyle='#27ae60';ctx.beginPath();ctx.arc(D_BX,D_BY,innerR,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#c0392b';ctx.beginPath();ctx.arc(D_BX,D_BY,innerR*0.4,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#fff';ctx.font='bold 13px system-ui';ctx.textAlign='center';
+  for(var i=0;i<segs;i++){var a=(i/segs)*Math.PI*2-Math.PI/2;ctx.fillText(nums[i],D_BX+Math.cos(a)*(outerR+10),D_BY+Math.sin(a)*(outerR+10)+4);}
+}
+function drawDartHand(holdDart){
+  var x=760,y=360;
+  ctx.fillStyle='#2a3a6a';ctx.beginPath();ctx.roundRect(x-5,y+10,38,H-y,8);ctx.fill();
+  ctx.fillStyle='#1a2a5a';ctx.fillRect(x-5,y+10,38,16);
+  ctx.fillStyle='#c8956a';ctx.beginPath();ctx.ellipse(x+16,y,22,14,0.15,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#b87848';
+  ctx.beginPath();ctx.ellipse(x+2,y-9,4,10,0.1,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(x+11,y-12,4,11,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(x+20,y-11,4,10,-0.15,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(x+28,y-7,3.5,8,-0.3,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(x-3,y+3,3.5,7,0.6,0,Math.PI*2);ctx.fill();
+  if(holdDart){
+    ctx.save();ctx.translate(x+8,y-22);ctx.rotate(-1.1);
+    ctx.fillStyle='#E24B4A';ctx.beginPath();ctx.moveTo(0,12);ctx.lineTo(-10,26);ctx.lineTo(0,22);ctx.closePath();ctx.fill();
+    ctx.fillStyle='#c03030';ctx.beginPath();ctx.moveTo(0,12);ctx.lineTo(10,26);ctx.lineTo(0,22);ctx.closePath();ctx.fill();
+    ctx.fillStyle='#c8a830';ctx.beginPath();ctx.roundRect(-3,-4,6,18,1);ctx.fill();
+    ctx.fillStyle='#aaa';ctx.beginPath();ctx.roundRect(-2,-2,4,10,1);ctx.fill();
+    for(var i=0;i<4;i++){ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(-2,-1+i*2.2,4,1);}
+    ctx.fillStyle='#888';ctx.beginPath();ctx.moveTo(-1,-4);ctx.lineTo(1,-4);ctx.lineTo(0,-14);ctx.closePath();ctx.fill();
+    ctx.restore();
+  }
+}
+function drawDartStuck(x,y,alpha){
+  ctx.save();ctx.globalAlpha=alpha||1;
+  var hx=760,hy=338;
+  var angle=Math.atan2(y-hy,x-hx);
+  ctx.translate(x,y);ctx.rotate(angle);
+  ctx.fillStyle='#888';ctx.beginPath();ctx.moveTo(-1,0);ctx.lineTo(1,0);ctx.lineTo(0,-10);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#c8a830';ctx.beginPath();ctx.roundRect(-3,0,6,20,1);ctx.fill();
+  ctx.fillStyle='#aaa';ctx.beginPath();ctx.roundRect(-2,2,4,12,1);ctx.fill();
+  for(var i=0;i<4;i++){ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(-2,3+i*2.5,4,1);}
+  ctx.fillStyle='#E24B4A';ctx.beginPath();ctx.moveTo(0,20);ctx.lineTo(-8,34);ctx.lineTo(0,30);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#c03030';ctx.beginPath();ctx.moveTo(0,20);ctx.lineTo(8,34);ctx.lineTo(0,30);ctx.closePath();ctx.fill();
+  ctx.restore();
+}
+function drawDartFlying(x,y,tx,ty){
+  var angle=Math.atan2(ty-y,tx-x);
+  ctx.save();ctx.translate(x,y);ctx.rotate(angle);
+  ctx.fillStyle='#888';ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(20,0);ctx.lineTo(10,-1);ctx.lineTo(10,1);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#c8a830';ctx.beginPath();ctx.roundRect(-10,-3,20,6,1);ctx.fill();
+  ctx.fillStyle='#aaa';ctx.beginPath();ctx.roundRect(-8,-2,12,4,1);ctx.fill();
+  for(var i=0;i<4;i++){ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(-7+i*2.5,-2,1,4);}
+  ctx.fillStyle='#E24B4A';ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(-22,-9);ctx.lineTo(-18,0);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#c03030';ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(-22,9);ctx.lineTo(-18,0);ctx.closePath();ctx.fill();
+  ctx.restore();
+}
+function drawDartCursor(){
+  if(locked)return;
+  ctx.strokeStyle='#E24B4A';ctx.lineWidth=2.5;ctx.globalAlpha=0.9;
+  ctx.beginPath();ctx.arc(dartCursorX,dartCursorY,16,0,Math.PI*2);ctx.stroke();
+  ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(dartCursorX-26,dartCursorY);ctx.lineTo(dartCursorX-18,dartCursorY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(dartCursorX+18,dartCursorY);ctx.lineTo(dartCursorX+26,dartCursorY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(dartCursorX,dartCursorY-26);ctx.lineTo(dartCursorX,dartCursorY-18);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(dartCursorX,dartCursorY+18);ctx.lineTo(dartCursorX,dartCursorY+26);ctx.stroke();
+  ctx.fillStyle='#E24B4A';ctx.globalAlpha=1;
+  ctx.beginPath();ctx.arc(dartCursorX,dartCursorY,3.5,0,Math.PI*2);ctx.fill();
+  ctx.globalAlpha=1;
+}
+function drawDartScene(phase,ft){
+  ctx.clearRect(0,0,W,H);
+  drawPub();drawDartboard();
+  dartsOnBoard.forEach(function(d){drawDartStuck(d.x,d.y,0.75);});
+  drawDartHand(phase==='idle');
+  if(phase==='fly'&&ft!==undefined){
+    var sx=768,sy=338;
+    var e=ft<0.5?2*ft*ft:1-Math.pow(-2*ft+2,2)/2;
+    var dx=sx+(dartLandX-sx)*e,dy=sy+(dartLandY-sy)*e-Math.sin(Math.PI*e)*40;
+    drawDartFlying(dx,dy,dartLandX,dartLandY);
+  }
+  if(phase==='landed'){
+    drawDartStuck(dartLandX,dartLandY,1);
+    var dist=dartDist(dartLandX,dartLandY);
+    if(dist<D_BR*0.12){
+      for(var i=0;i<3;i++){ctx.strokeStyle='rgba(255,220,50,'+(0.7-i*0.22)+')';ctx.lineWidth=2.5-i*0.5;ctx.beginPath();ctx.arc(dartLandX,dartLandY,14+i*14,0,Math.PI*2);ctx.stroke();}
+      confetti();ctx.fillStyle='#fff';ctx.font='bold 32px system-ui';ctx.textAlign='center';ctx.fillText('BULLSEYE!',W/2,360);
+    }
+  }
+  if(phase==='idle') drawDartCursor();
 }
 function confetti(){
   var cols=['#D85A30','#639922','#378ADD','#D4537E','#EF9F27','#5DCAA5'];
   for(var i=0;i<22;i++){ctx.fillStyle=cols[i%cols.length];ctx.save();ctx.translate(W*0.1+i*40,80+Math.sin(i*1.3)*28);ctx.rotate(i*0.6);ctx.fillRect(-5,-4,10,8);ctx.restore();}
 }
 function showGameOver(){
-  tapBtn.style.display='none';document.getElementById('meter-outer').style.display='none';
+  tapBtn.style.display='none';
+  document.getElementById('meter-outer').style.display='none';
   cancelAnimationFrame(idleRaf);cancelAnimationFrame(flyRaf);
+  cancelAnimationFrame(dartAnimId);cancelAnimationFrame(dartFlyRaf);
   msgEl.style.color='#c0392b';msgEl.style.fontSize='20px';msgEl.textContent='Out of lives!';
   ctx.clearRect(0,0,W,H);ctx.fillStyle='#FCEBEB';ctx.fillRect(0,0,W,H);
   ctx.font='bold 58px system-ui';ctx.textAlign='center';
@@ -903,8 +1166,8 @@ function showGameOver(){
   btn.onclick=function(){location.reload();};
   document.getElementById('game-screen').appendChild(btn);
 }
-tapBtn.addEventListener('click',doShot);
-document.addEventListener('keydown',function(e){if(e.code==='Space'){e.preventDefault();doShot();}});
+tapBtn.addEventListener('click',function(){if(curLevel===6)doDartThrow();else doShot();});
+document.addEventListener('keydown',function(e){if(e.code==='Space'){e.preventDefault();if(curLevel===6)doDartThrow();else doShot();}});
 </script>
 </body>
 </html>
