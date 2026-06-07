@@ -426,7 +426,7 @@ function resetToIdle(){
   cancelAnimationFrame(idleRaf);idleT=0;
   ssArmT=0;ssArmPhase='rest';ssStoneReleased=false;ssSinkT=0;ssSinking=false;ssLastSkip=-1;ssStoneT=0;ssRipples=[];
   if(curLevel===0){animateIdle();}
-  else if(curLevel===5){drawStoneSkipScene();}
+  else if(curLevel===5){ssIdleLoop();}
   else{drawScene('idle',0,0.5);}
 }
 function animateIdle(){idleT+=0.03;drawBasketball('idle',0,0.5,idleT);idleRaf=requestAnimationFrame(animateIdle);}
@@ -1530,6 +1530,8 @@ function drawFlickScene(phase,bx,by,rot){
   else if(phase==='fail'){drawFlickBall(Math.max(20,Math.min(W-20,bx)),Math.max(70,Math.min(290,by)),rot,1);}
 }
 function flickIdleLoop(){if(curLevel===7&&!locked)drawFlickScene('idle');requestAnimationFrame(flickIdleLoop);}
+flickIdleLoop();
+function ssIdleLoop(){if(curLevel===5&&!locked)drawStoneSkipScene();idleRaf=requestAnimationFrame(ssIdleLoop);}
 flickIdleLoop();
 
 function confetti(){
