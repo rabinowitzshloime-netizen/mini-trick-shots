@@ -975,11 +975,12 @@ function ssGetArmAngle(){
 }
 function ssGetStonePos(t){
   const progress=eio(Math.min(t,1));
-  const baseY=SS_LAKE_START_Y+(SS_FAR_BANK_Y-SS_LAKE_START_Y)*progress;
-  const hop=Math.abs(Math.sin(Math.PI*t*3))*22*(1-progress*0.55);
+  const baseY=SS_WATER_Y+8-(progress*20);
+  const hop=Math.abs(Math.sin(Math.PI*t*3))*18*(1-progress*0.5);
   const y=baseY-hop;
-  const scale=0.88-progress*0.52;
+  const scale=0.88-progress*0.45;
   return{x:SS_STONE_X,y,r:11*scale,progress,hop};
+}
 }
 function drawSSSunsetScene(){
   // sky
@@ -1106,7 +1107,7 @@ function doStoneThrow(ok,norm){
     drawStoneSkipScene();
     // draw stone
     if(ssStoneReleased&&!ssSinking){
-      ssStoneT+=0.016;
+      ssStoneT+=0.035;
       const p=ssGetStonePos(ssStoneT);
       const hopPhase=Math.floor(ssStoneT*3);
       if(hopPhase!==ssLastSkip&&hopPhase>0&&hopPhase<4&&p.hop<2.5){
